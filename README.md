@@ -1,58 +1,25 @@
 ## Project: Build a Traffic Sign Recognition Program
 [![Udacity - Self-Driving Car NanoDegree](https://s3.amazonaws.com/udacity-sdc/github/shield-carnd.svg)](http://www.udacity.com/drive)
 
-Overview
+Install TensorFlow with GPU support
 ---
-In this project, you will use what you've learned about deep neural networks and convolutional neural networks to classify traffic signs. You will train and validate a model so it can classify traffic sign images using the [German Traffic Sign Dataset](http://benchmark.ini.rub.de/?section=gtsrb&subsection=dataset). After the model is trained, you will then try out your model on images of German traffic signs that you find on the web.
+In the second project of "Self-Driving Car" Nanoprogram program, we are required to use convolutional neural networks (LeNet) to classify traffic signs. In order to gain a quicker training process, TensorFlow with GPU support need to be installed properly first. 
 
-We have included an Ipython notebook that contains further instructions 
-and starter code. Be sure to download the [Ipython notebook](https://github.com/udacity/CarND-Traffic-Sign-Classifier-Project/blob/master/Traffic_Sign_Classifier.ipynb). 
+Besides the [official web instruction](https://www.tensorflow.org/install/), the following step by step resources are helpful:
+* [Install Tensorflow (GPU version) for Windows and Anaconda](https://www.youtube.com/watch?v=Ebo8BklTtmc&t=673s)
+* [Tensorflow GPU fails to find CUDA](https://github.com/tensorflow/tensorflow/issues/5968)
+* [How to fix "python is not recognized as an internal or external command"](https://www.youtube.com/watch?v=uXqTw5eO0Mw)
 
-We also want you to create a detailed writeup of the project. Check out the [writeup template](https://github.com/udacity/CarND-Traffic-Sign-Classifier-Project/blob/master/writeup_template.md) for this project and use it as a starting point for creating your own writeup. The writeup can be either a markdown file or a pdf document.
+You can do the test if the Tensorflow take the GPU advantage using the following method: [How to tell if Jupyter notebook is using GPU](https://discussions.udacity.com/t/how-to-tell-if-jupyter-notebook-is-using-gpu/217660)
 
-To meet specifications, the project will require submitting three files: 
-* the Ipython notebook with the code
-* the code exported as an html file
-* a writeup report either as a markdown or pdf file 
+There is one big problem if you installing tensorflow following exactly the [official web instruction](https://www.tensorflow.org/install/). When you don't finish the project noninterruptedly, you close the Anaconda and open it later, the following error message will show and the CMD will refuse to work: 
 
-Creating a Great Writeup
----
-A great writeup should include the [rubric points](https://review.udacity.com/#!/rubrics/481/view) as well as your description of how you addressed each point.  You should include a detailed description of the code used in each step (with line-number references and code snippets where necessary), and links to other supporting documents or external references.  You should include images in your writeup to demonstrate how your code works with examples.  
+"
+usage: conda [-h]
+{keygen,sign,unsign,verify,unpack,install,install-scripts,convert,version,help}
+...
+conda: error: invalid choice: '..checkenv' (choose from 'keygen', 'sign', 'unsign', 'verify', 'unpack', 'install', 'install-scripts', 'convert', 'version', 'help')
+"
 
-All that said, please be concise!  We're not looking for you to write a book here, just a brief description of how you passed each rubric point, and references to the relevant code :). 
-
-You're not required to use markdown for your writeup.  If you use another method please just submit a pdf of your writeup.
-
-The Project
----
-The goals / steps of this project are the following:
-* Load the data set
-* Explore, summarize and visualize the data set
-* Design, train and test a model architecture
-* Use the model to make predictions on new images
-* Analyze the softmax probabilities of the new images
-* Summarize the results with a written report
-
-### Dependencies
-This lab requires:
-
-* [CarND Term1 Starter Kit](https://github.com/udacity/CarND-Term1-Starter-Kit)
-
-The lab environment can be created with CarND Term1 Starter Kit. Click [here](https://github.com/udacity/CarND-Term1-Starter-Kit/blob/master/README.md) for the details.
-
-### Dataset and Repository
-
-1. Download the data set. The classroom has a link to the data set in the "Project Instructions" content. This is a pickled dataset in which we've already resized the images to 32x32. It contains a training, validation and test set.
-2. Clone the project, which contains the Ipython notebook and the writeup template.
-```sh
-git clone https://github.com/udacity/CarND-Traffic-Sign-Classifier-Project
-cd CarND-Traffic-Sign-Classifier-Project
-jupyter notebook Traffic_Sign_Classifier.ipynb
-```
-
-### Requirements for Submission
-Follow the instructions in the `Traffic_Sign_Classifier.ipynb` notebook and write the project report using the writeup template as a guide, `writeup_template.md`. Submit the project code and writeup document.
-
-## How to write a README
-A well written README file can enhance your project and portfolio.  Develop your abilities to create professional README files by completing [this free course](https://www.udacity.com/course/writing-readmes--ud777).
+I searched online and realized the issue is still very fresh, the problem is still being discussed in [conda command failure #6171](https://github.com/ContinuumIO/anaconda-issues/issues/6171). I finally solved my problem following [this](https://stackoverflow.com/a/46493533/8936445). In short, after activating the created environment, instead of using "pip install --ignore-installed --upgrade tensorflow-gpu", you HAVE TO use "pip install tensorflow-gpu" to avoid above issue. More detailed description can be found [here](https://wangjieleo.wixsite.com/jwang/single-post/2017/11/08/Installing-TensorFlow-with-GPU-support). 
 
