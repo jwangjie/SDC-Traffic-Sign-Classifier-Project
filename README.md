@@ -2,7 +2,7 @@
 
 ### Install TensorFlow with GPU 
 
-In the second project of "Self-Driving Car" Nanoprogram program, we are required to use convolutional neural networks (LeNet) to classify traffic signs. In order to gain a quicker training process, TensorFlow with GPU support need to be installed properly first. 
+In this project, a convolutional neural networks (LeNet) is applied to classify traffic signs. In order to gain a quicker training process, TensorFlow with GPU support is installed properly first. 
 
 Besides the [official web instruction](https://www.tensorflow.org/install/), the following step by step resources are helpful:
 * [Install Tensorflow (GPU version) for Windows and Anaconda](https://www.youtube.com/watch?v=Ebo8BklTtmc&t=673s)
